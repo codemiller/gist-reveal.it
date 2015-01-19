@@ -1,0 +1,14 @@
+{
+  "kind": "Project",
+  "apiVersion": "v1beta1",
+  "metadata": {
+    "name": "gist-reveal-project",
+    "labels": {
+      "name": "gist-reveal-project"
+    },
+    "annotations": {
+      "description": "Gist-Reveal.It project on OpenShift v3"
+    }
+  },    
+  "displayName": "Gist-Reveal.It"
+}
