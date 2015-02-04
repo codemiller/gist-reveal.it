@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+echo "Assembling"
+
+APP_RUNTIME_DIR="${HOME}/src"
+APP_SRC_DIR="/tmp/src"
+mkdir -p ${APP_RUNTIME_DIR}
+cp -Rf ${APP_SRC_DIR}/* ${APP_RUNTIME_DIR}/
+
+pushd "$APP_RUNTIME_DIR/${APP_ROOT}" >/dev/null
+
+npm install --production
+
+popd >/dev/null
+
