@@ -1,16 +1,16 @@
 FROM fedora
+MAINTAINER ryanj <ryanj@redhat.com>
 
-RUN yum install -y nodejs
-RUN yum install -y npm
-RUN yum install -y git
-RUN yum install -y bzip2
-
-COPY . /app
+RUN yum -y update && yum clean all
+RUN yum -y install npm git bzip2 curl build-essential ca-certificates && yum clean all
 
 WORKDIR /app
 
-RUN cd /app; npm install
+ADD package.json /app/
+RUN npm install --production
+ADD . /app/
 
 EXPOSE 8080
 
-CMD OPENSHIFT_NODEJS_IP=0.0.0.0 npm start
+CMD []
+ENTRYPOINT ["npm", "start"]
